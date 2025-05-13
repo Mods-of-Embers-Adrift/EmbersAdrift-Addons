@@ -1,37 +1,98 @@
-# EmbersAdrift-Addons
+# EmbersAdrift Addons
 
-In you "SteamLibrary\steamapps\common\Embers Adrift\Embers Adrift_Data\Managed" Replace the Assembly-CSharp with the one on Github.
-Make sure you make a Copy of the Original elsewhere incase you want to revert back.
+This repository contains experimental modifications for *Embers Adrift* designed to enhance user experience, primarily through UI improvements and utility tools like DPS tracking.
 
-Instructions
-Press F2 to show/hide
+---
 
-MOD TO DO LIST:
+## 📂 Installation Instructions
 
-Finish DPS Tracker 
- - ~~Add Source to InitializeCombatText~~ 
- - Stop DPS Meter from changing when Out of Combat Stance?
- - Identify with Color Player? Party Member Vs Mobs or Split Mobs Into a bottom Section?
- - Make UI pretty 
+**Replace the Assembly-CSharp.dll:**
 
-Attack Swing Tracker/Timer
- - Timer??
-Stats
- - Find Math 
+1. Navigate to:
+   ```
+   SteamLibrary\steamapps\common\Embers Adrift\Embers Adrift_Data\Managed
+   ```
+2. **Backup your existing `Assembly-CSharp.dll`** by copying it to a safe location.  
+3. Replace the original file with the modified version provided in this repository.
 
+> ⚠️ Always back up the original file in case you want to revert changes.
 
+---
 
+## 🕹️ In-Game Usage
 
+- Press **F2** to toggle the UI visibility.
 
-Stats
- - Find Math 
+---
 
-Melon Loader 
-Positional
- - Shout at me for Positional on target
+## 🔧 Features In Progress
 
-Merchant
- - Prices for merchant to inventory
+### ✅ DPS Tracker
+- ~~Hook into `InitializeCombatText`~~ (✔️ Done)
+- Prevent DPS updates when out of combat stance
+- Color-coded breakdown:
+  - Player vs. Party Members vs. Enemies
+  - Optional: Split mobs into a lower section
+- Improve UI appearance and readability
 
+### 🗡️ Attack Swing Tracker / Timer
+- Implement visual timer for attack swings
 
-![EarlyStagesDPS](https://github.com/user-attachments/assets/fec12c63-db02-4587-846c-09993107f7ec)
+### 📊 Stat Display
+- Determine and display underlying stat formulas and calculations
+
+### 🔄 Positional Awareness
+- Notifications or cues when positional bonuses apply  
+  > "Yell at me if I'm not in the right spot!"
+
+### 🛒 Merchant Enhancements
+- Show item prices relative to your inventory and compare
+
+---
+
+## 🎨 Visual/UI Improvements
+
+- **Resizable Window**: Allow resizing via a drag handle.
+- **Move to Unity UI**: Replace `OnGUI()` with `UnityEngine.UI` Canvas for modern styling and better interaction.
+- **Custom Colors**: Team/class-based color options or DPS gradients.
+- **Font Tuning**: Customizable font sizes, bold headers, user-defined styles.
+- **Column Layout**:
+  - DPS  
+  - Total Damage  
+  - Time Active  
+- **Alternating Row Colors**: Enhance readability.
+
+---
+
+## 🔢 Sorting & Filtering
+
+- Sort by DPS (ascending/descending)
+- Filter by Player Name
+- Toggle: Show Self Only / Group Only
+- Minimum DPS Threshold: Auto-hide entries below set value
+
+---
+
+## ⏱️ Time Management
+
+- Time Elapsed Display
+- DPS Interval Selector:
+  - Last 5 / 10 / 30 seconds
+  - Full fight
+- Combat State Awareness:
+  - Track only while in combat
+
+---
+
+## 🕹️ Controls & Interactions
+
+- Pause/Unpause DPS tracking
+- Reset Button (already implemented)
+- Force Refresh Button
+- Lock Window Position
+- Click-to-Focus on Player (future: inspect, target)
+- Tooltips: Hover for total damage and fight duration
+
+---
+
+##
