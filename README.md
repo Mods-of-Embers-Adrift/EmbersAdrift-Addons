@@ -92,7 +92,12 @@ This repository contains experimental modifications for *Embers Adrift* designed
 - Lock Window Position
 - Click-to-Focus on Player (future: inspect, target)
 - Tooltips: Hover for total damage and fight duration
-
 ---
+
+## VERSION 1.1
+
+## VERSION 1.0
+
+
 
 ##
