@@ -95,8 +95,10 @@ This repository contains experimental modifications for *Embers Adrift* designed
 ---
 
 ## VERSION 1.1
+![V1 1 Embers](https://github.com/user-attachments/assets/bd574788-5746-40d4-90c4-145d5307f23e)
 
 ## VERSION 1.0
+![EarlyStagesDPS](https://github.com/user-attachments/assets/3a5b2534-0929-4d4d-a6de-efbcbf65031d)
 
 
 
