@@ -113,6 +113,7 @@ In no way shape or form is this addon/mod supproted by the game developers. Use 
 - ✅ Accurate locked duration tracking
 - ✅ UI drag-and-drop support
 - ✅ Cleaner scrollable layout
+  
 ![V1 2](https://github.com/user-attachments/assets/0617f260-43e0-4b77-ac42-4976c24c1053)
 
 ## VERSION 1.1
