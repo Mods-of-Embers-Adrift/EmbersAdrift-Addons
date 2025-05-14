@@ -69,11 +69,13 @@ In no way shape or form is this addon/mod supproted by the game developers. Use 
 - **Move to Unity UI**: Replace `OnGUI()` with `UnityEngine.UI` Canvas for modern styling and better interaction.
 - **Custom Colors**: Team/class-based color options or DPS gradients.
 - **Font Tuning**: Customizable font sizes, bold headers, user-defined styles.
-- **Column Layout**:
+
+# **Column Layout**:
 - DPS  
 - Total Damage  
-- Time Active  
-- **Alternating Row Colors**: Enhance readability ✔️
+- Time Active
+
+# **Alternating Row Colors**: Enhance readability ✔️
 
 ---
 
