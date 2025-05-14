@@ -1,5 +1,7 @@
 # EmbersAdrift Addons
 This repository contains experimental modifications for *Embers Adrift* designed to enhance user experience, primarily through UI improvements and utility tools like DPS tracking.
+
+In no way shape or form is this addon/mod supproted by the game developers. Use caution when using it and do not use it to destroy other players motivation, or idea of gaming. By this I mean do not shame other players or talk shit to them for there performance metrics.
 ---
 ## 📂 Installation Instructions
 **Replace the Assembly-CSharp.dll:**
