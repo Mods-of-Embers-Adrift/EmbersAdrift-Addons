@@ -106,13 +106,12 @@ This repository contains experimental modifications for *Embers Adrift* designed
 ---
 
 ## VERSION 1.2
-
 - ✅ Fight segmentation by combat inactivity
 - ✅ Popup browser for previous encounters
 - ✅ Accurate locked duration tracking
 - ✅ UI drag-and-drop support
 - ✅ Cleaner scrollable layout
-
+![V1 2](https://github.com/user-attachments/assets/0617f260-43e0-4b77-ac42-4976c24c1053)
 
 ## VERSION 1.1
 ![V1 1 Embers](https://github.com/user-attachments/assets/bd574788-5746-40d4-90c4-145d5307f23e)
