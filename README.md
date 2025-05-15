@@ -1,5 +1,5 @@
 # EmbersAdrift Addons
-This repository contains experimental modifications for *Embers Adrift* designed to enhance user experience, primarily through UI improvements and utility tools like DPS tracking.
+This repository contains experimental modifications for *Embers Adrift* designed to enhance user experience, primarily through UI improvements and utility tools. Our goal is not to create a Toxic Community, its the opposite to be able to identify issues within the game like gaps between classes and such as well as improve game utilities.
 
 ![V1 3](https://github.com/user-attachments/assets/70ae12ea-b88d-458d-af4a-92045944360f)
 ---
