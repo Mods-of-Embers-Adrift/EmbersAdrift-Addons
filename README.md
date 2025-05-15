@@ -1,7 +1,7 @@
 # EmbersAdrift Addons
 This repository contains experimental modifications for *Embers Adrift* designed to enhance user experience, primarily through UI improvements and utility tools like DPS tracking.
 
-In no way shape or form is this addon/mod supproted by the game developers. Use caution when using it and do not use it to destroy other players motivation, or idea of gaming. By this I mean do not shame other players or talk shit to them for there performance metrics.
+![V1 3](https://github.com/user-attachments/assets/70ae12ea-b88d-458d-af4a-92045944360f)
 ---
 ## 📂 Installation Instructions
 **Replace the Assembly-CSharp.dll:**
@@ -17,9 +17,6 @@ In no way shape or form is this addon/mod supproted by the game developers. Use 
 ## 🕹️ In-Game Usage
 
 - Press **F2** to toggle the UI visibility.
-- Press **F3** to collapse/expand the DPS view.
-- Press **F4** to clear the player name filter.
-
 ---
 
 ## 🔧 Features In Progress
@@ -108,6 +105,9 @@ In no way shape or form is this addon/mod supproted by the game developers. Use 
 - Tooltips: Hover for total damage and fight duration
 
 ---
+
+## VERSION 1.3
+![V1 3](https://github.com/user-attachments/assets/70ae12ea-b88d-458d-af4a-92045944360f)
 
 ## VERSION 1.2
 - ✅ Fight segmentation by combat inactivity
