@@ -17,7 +17,7 @@ This repository hosts **experimental UI and utility modifications** for *Embers 
 - 🧪 **In Progress Features (partially implemented):**
   - Enemy DPS tab structure started (visual placeholder only).
   - HPS tab layout planned but not yet populated.
-  - Threat Meter logic under initial design/testing phase.
+  - Removed Threat Meter logic under initial design/testing phase.
 - 🧼 UI Polish & Performance:
   - Optimized memory use and draw calls.
   - Visual cleanup across draggable elements.
