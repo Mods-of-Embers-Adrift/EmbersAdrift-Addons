@@ -8,8 +8,6 @@ This repository hosts **experimental UI and utility modifications** for *Embers 
 
 ## 📝 Changelogs
 
-## 📝 Changelogs
-
 ### 📌 Version 1.3
 - ✅ **Integrated Swing Timer**  
   - Displays a real-time swing bar animation with timing.
