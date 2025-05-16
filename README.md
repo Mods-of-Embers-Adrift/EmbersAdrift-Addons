@@ -21,8 +21,8 @@ This repository hosts **experimental UI and utility modifications** for *Embers 
 - 🧼 UI Polish & Performance:
   - Optimized memory use and draw calls.
   - Visual cleanup across draggable elements.
-  
-![V1.3](https://github.com/user-attachments/assets/70ae12ea-b88d-458d-af4a-92045944360f)
+    
+  ![V1 3](https://github.com/user-attachments/assets/0761bcec-2200-4847-a864-f02a81a8422b)
 
 ---
 
