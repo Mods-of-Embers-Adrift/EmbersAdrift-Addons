@@ -4,6 +4,7 @@ This repository hosts **experimental UI and utility modifications** for *Embers 
 
 > Our mission: Help players **engage deeper** with the game through visibility, utility, and transparency.
 
+> Moving forward with V1.3 we will only upload the new DLL with the new class updates, instead of the entire project as previously done in other versions.
 ---
 
 ## 📝 Changelogs
