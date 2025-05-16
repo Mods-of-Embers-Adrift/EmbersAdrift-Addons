@@ -8,10 +8,21 @@ This repository hosts **experimental UI and utility modifications** for *Embers 
 
 ## 📝 Changelogs
 
+## 📝 Changelogs
+
 ### 📌 Version 1.3
-- Added advanced filters and UI polishing
-- Improved memory safety
-- Updated visuals  
+- ✅ **Integrated Swing Timer**  
+  - Displays a real-time swing bar animation with timing.
+- 🔄 **Reworked UI Filters**  
+  - Temporarily removed the **Player Filter** (under revision).
+- 🧪 **In Progress Features (partially implemented):**
+  - Enemy DPS tab structure started (visual placeholder only).
+  - HPS tab layout planned but not yet populated.
+  - Threat Meter logic under initial design/testing phase.
+- 🧼 UI Polish & Performance:
+  - Optimized memory use and draw calls.
+  - Visual cleanup across draggable elements.
+  
 ![V1.3](https://github.com/user-attachments/assets/70ae12ea-b88d-458d-af4a-92045944360f)
 
 ---
