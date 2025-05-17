@@ -21,9 +21,9 @@ This repository hosts **experimental UI and utility modifications** for *Embers 
 - **Combat Text Integration:** Expanded `CombatTextManager` to hook into damage events and update threat and DPS records accordingly.
 
 ### 🛠️ Enhancements
-- **Filtered Threat Display:** Threat list now filters out all non-player entities.
-- **Local Player Check:** Ensured combat text and overhead updates are only triggered for local/valid players.
-- **Performance-Safe Proximity Scan:** Added `FindPlayersInRadius(Vector3, float)` to safely gather nearby players without including NPCs or invalid entities.
+- **Filtered Threat Display:** Threat list now filters out all non-player entities. Still very early stage.
+- **Local Player Check:** Ensured combat text and overhead updates are only triggered for local/valid players. Still very early stage.
+- **Performance-Safe Proximity Scan:** Added `FindPlayersInRadius(Vector3, float)` to safely gather nearby players without including NPCs or invalid entities. Still very early stage.
 
 ### 🧹 Refactors & Cleanup
 - Removed redundant threat/damage logging from NPC and non-player sources.
