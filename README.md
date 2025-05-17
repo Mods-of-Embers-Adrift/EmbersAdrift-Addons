@@ -29,11 +29,7 @@ This repository hosts **experimental UI and utility modifications** for *Embers 
 - Removed redundant threat/damage logging from NPC and non-player sources.
 - Restructured code in `CombatTextManager.InitializeCombatText` for clearer logic separation and event handling.
 - Consolidated threat and DPS registration logic to reduce duplication.
-- 
-### 🐛 Fixes
-- Fixed incorrect logging of threat for non-player entities.
-- Addressed `CS0103` and `CS1579` errors by implementing a proper utility method for player scans.
-
+  
 ---
 
 ### 📌 Version 1.3
