@@ -6,6 +6,21 @@ This repository hosts **experimental UI and utility modifications** for *Embers 
 
 ---
 
+## 🔄 Transition Notice: Moving to MelonLoader & Lua
+
+Starting in soon, we are officially **migrating from direct DLL replacement** to a **MelonLoader-based mod** architecture.
+
+- ✅ **MelonLoader Integration**: Full support for modular mod loading without needing to replace `Assembly-CSharp.dll`
+- ✅ **Lua Scripting Support** (via [LuaLoader](https://github.com/NeptuneQ/LuaLoader)): Allow players to script UI behavior and extensions using Lua without needing C# knowledge
+- 🔧 We’ll continue updating core logic (DPS, threat, UI) in C# while exposing functionality to Lua
+- 🧩 Future releases will include:
+  - A Lua scripting API for custom behaviors
+  - Plug-and-play `.lua` scripts
+  - Backward compatibility with saved layouts and logs
+
+> 🧠 This shift makes the addon more accessible, safer to use, and easier to extend by the community.
+
+---
 
 ## 📝 Changelogs
 
