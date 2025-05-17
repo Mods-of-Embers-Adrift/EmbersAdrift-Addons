@@ -34,7 +34,7 @@ This repository hosts **experimental UI and utility modifications** for *Embers 
 - Fixed incorrect logging of threat for non-player entities.
 - Addressed `CS0103` and `CS1579` errors by implementing a proper utility method for player scans.
 
-
+---
 
 ### 📌 Version 1.3
 - ✅ **Integrated Swing Timer**  
