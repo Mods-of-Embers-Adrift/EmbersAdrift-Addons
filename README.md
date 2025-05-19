@@ -39,6 +39,8 @@ We are looking into possibly **migrating from direct DLL replacement** to a **Me
 # 🔜 Known Issues & Next Steps
 - **Threat Meter:** Needs to account for class-based multipliers (e.g. tanks generate more threat, healers generate less).
 - **Skill Breakdown:** Add ability to display which skills contributed to damage/healing, including per-crit breakdowns.
+  
+  ![V1 4](https://github.com/user-attachments/assets/4452017d-7ae5-4ec8-a989-ff7103c0e098)
 ---
 
 ### 📌 Version 1.3
