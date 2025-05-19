@@ -24,7 +24,7 @@ We are looking into possibly **migrating from direct DLL replacement** to a **Me
 
 ## 📝 Changelogs
 
-## 📦 Version 1.4 – Threat & DPS Enhancements
+## 📌 Version 1.4 – Threat & DPS Enhancements
 # ✅ Changes & Additions
 - Added `UserThreatTracker` and `UserDpsTracker` for tracking threat, DPS, and HPS.
 - Integrated combat event hooks via `CombatTextManager` to log player damage and healing.
