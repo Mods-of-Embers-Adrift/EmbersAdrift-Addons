@@ -24,6 +24,7 @@ We are looking into possibly **migrating from direct DLL replacement** to a **Me
 1. It doesn't violate TOS  (iii) copy, scrape, reproduce, redisplay, reverse engineer, decompile, hack, or modify the Services
 2. No Injection is being done or DLL Replacement
 
+----
 [Embers Adrift Game Client] (Untouched)
          │
          ▼
