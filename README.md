@@ -25,14 +25,16 @@ We are looking into possibly **migrating from direct DLL replacement** to a **Me
 2. No Injection is being done or DLL Replacement
 
 [Embers Adrift Game Client] (Untouched)
-       |
+         │
+         ▼
 [MelonLoader or External .NET Injector]
-       |
+         │
+         ▼
 [Addon Loader (Runtime C#)]
-    |
-    +-- UI Layer (DPS Meter, Threat Tracker, etc.)
-    +-- Harmony Patch Layer (only to log data)
-    +-- File Logger (optional, for combat logs)
+         │
+         ├── UI Layer                # Custom overlay windows (e.g., DPS, Threat, HPS)
+         ├── Harmony Patch Layer     # Runtime-only hooks for safe data access (read-only)
+         └── File Logger (Optional)  # Local logging of combat stats or diagnostics
 
 ---
 
