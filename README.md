@@ -20,6 +20,20 @@ We are looking into possibly **migrating from direct DLL replacement** to a **Me
 
 > 🧠 This shift makes the addon more accessible, safer to use, and easier to extend by the community.
 
+# Why is this a safer route? 
+1. It doesn't violate TOS  (iii) copy, scrape, reproduce, redisplay, reverse engineer, decompile, hack, or modify the Services
+2. No Injection is being done or DLL Replacement
+
+[Embers Adrift Game Client] (Untouched)
+       |
+[MelonLoader or External .NET Injector]
+       |
+[Addon Loader (Runtime C#)]
+    |
+    +-- UI Layer (DPS Meter, Threat Tracker, etc.)
+    +-- Harmony Patch Layer (only to log data)
+    +-- File Logger (optional, for combat logs)
+
 ---
 
 ## 📝 Changelogs
