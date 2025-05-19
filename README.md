@@ -24,8 +24,17 @@ We are looking into possibly **migrating from direct DLL replacement** to a **Me
 1. It doesn't violate TOS  (iii) copy, scrape, reproduce, redisplay, reverse engineer, decompile, hack, or modify the Services
 2. No Injection is being done or DLL Replacement
 
-
-<pre> <code> EmbersAdrift_Addons/ ├── Embers Adrift Game Client # Original game files (untouched) │ ├── MelonLoader/ or External Injector # Injects mods without modifying game files │ ├── Addon Loader/ # Runtime-loaded C# addon container │ ├── UI Layer/ # Custom overlay windows (DPS, Threat, HPS) │ ├── Harmony Patch Layer/ # Read-only method hooks for combat events │ └── File Logger/ # Optional local combat log or diagnostics </code> </pre>
+```
+EmbersAdrift_Addons/
+├── Embers Adrift Game Client            # Original game files (untouched)
+│
+├── MelonLoader/ or External Injector      # Injects mods without modifying game files
+│
+├── Addon Loader/                          # Runtime-loaded C# addon container
+│   ├── UI Layer/                          # Custom overlay windows (DPS, Threat, HPS)
+│   ├── Harmony Patch Layer/               # Read-only method hooks for combat events
+│   └── File Logger/                       # Optional local combat log or diagnostics
+```
 ---
 
 ## 📝 Changelogs
