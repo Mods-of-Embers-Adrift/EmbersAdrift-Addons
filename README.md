@@ -22,7 +22,7 @@ We are looking into possibly **migrating from direct DLL replacement** to a **Me
 
 # Why is this a safer route? 
 1. It doesn't violate TOS  (iii) copy, scrape, reproduce, redisplay, reverse engineer, decompile, hack, or modify the Services
-2. No Injection is being done or DLL Replacement
+2. No modification of original DLL being made it's all external.
 
 ```
 EmbersAdrift_Addons/
