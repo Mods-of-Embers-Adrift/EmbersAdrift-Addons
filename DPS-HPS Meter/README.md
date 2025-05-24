@@ -22,77 +22,77 @@ This addon gives you a real-time overview of combat performance in a fully custo
 
 ## 🆕 Changelog
 
-### Version 1.0.2
-## Major Updates:
+## Version 1.0.2
 
-Combat Text & Data:
-• Fixed combat text parsing for damage messages
-• Added proper healing message detection ("restores", "your" keyword)
-• Implemented proper damage number extraction
-• Added player name resolution
-• Fixed data flow from combat text to tracker
-• Confirmed working DPS tracking system
-• Added proper HPS tracking system
+### Major Updates:
+### Combat Text & Data:
+- Fixed combat text parsing for damage messages  
+- Added proper healing message detection ("restores", "your" keyword)  
+- Implemented proper damage number extraction  
+- Added player name resolution  
+- Fixed data flow from combat text to tracker  
+- Confirmed working DPS tracking system  
+- Added proper HPS tracking system  
 
-UI System Overhaul:
-• Added tab system (Current, History, Settings)
-• Implemented multi-tracking system with checkboxes
-• Added window position saving
-• Added window resizing functionality
-• Added minimized mode with top-left button
-• Added proper window state management
-• Improved UI visibility controls
+### UI System Overhaul:
+- Added tab system (Current, History, Settings)  
+- Implemented multi-tracking system with checkboxes  
+- Added window position saving  
+- Added window resizing functionality  
+- Added minimized mode with top-left button  
+- Added proper window state management  
+- Improved UI visibility controls  
 
-Keybind Implementation:
-• Changed toggle key from F2 to Insert
-• Added Shift+Insert for position reset
-• Added keybind information to Settings tab
-• Improved keybind responsiveness
-• Added proper keybind state handling
+### Keybind Implementation:
+- Changed toggle key from F2 to Insert  
+- Added Shift+Insert for position reset  
+- Added keybind information to Settings tab  
+- Improved keybind responsiveness  
+- Added proper keybind state handling  
 
-Window Management:
-• Added window position saving/loading
-• Added window size persistence
-• Added default position reset
-• Added proper window dragging
-• Added resize handle
-• Added multi-window support
-• Added window state persistence
+### Window Management:
+- Added window position saving/loading  
+- Added window size persistence  
+- Added default position reset  
+- Added proper window dragging  
+- Added resize handle  
+- Added multi-window support  
+- Added window state persistence  
 
-Quality of Life:
-• Added minimize button functionality
-• Added proper window restoration
-• Added settings tab with controls
-• Added multi-tracking toggles
-• Added window position reset
-• Added proper cleanup handling
-• Improved error handling
+### Quality of Life:
+- Added minimize button functionality  
+- Added proper window restoration  
+- Added settings tab with controls  
+- Added multi-tracking toggles  
+- Added window position reset  
+- Added proper cleanup handling  
+- Improved error handling  
 
-Visual Improvements:
-• Added proper styling system
-• Improved text readability
-• Added consistent UI theme
-• Added proper spacing
-• Added proper alignment
-• Added proper scrolling
-• Added proper headers
+### Visual Improvements:
+- Added proper styling system  
+- Improved text readability  
+- Added consistent UI theme  
+- Added proper spacing  
+- Added proper alignment  
+- Added proper scrolling  
+- Added proper headers  
 
-Bug Fixes:
-• Fixed instance persistence issues
-• Fixed window state management
-• Fixed position saving issues
-• Fixed multi-tracking bugs
-• Fixed style initialization
-• Fixed window cleanup
-• Fixed data persistence
+### Bug Fixes:
+- Fixed instance persistence issues  
+- Fixed window state management  
+- Fixed position saving issues  
+- Fixed multi-tracking bugs  
+- Fixed style initialization  
+- Fixed window cleanup  
+- Fixed data persistence  
 
-Performance:
-• Improved window handling
-• Better state management
-• Improved data flow
-• Better cleanup handling
-• Optimized UI updates
-• Better memory management
+### Performance:
+- Improved window handling  
+- Better state management  
+- Improved data flow  
+- Better cleanup handling  
+- Optimized UI updates  
+- Better memory management  
 
 
 ### Version 1.0.1
