@@ -94,6 +94,7 @@ This addon gives you a real-time overview of combat performance in a fully custo
 - Optimized UI updates  
 - Better memory management  
 
+---
 
 ### Version 1.0.1
 
