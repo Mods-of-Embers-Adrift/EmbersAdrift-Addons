@@ -58,7 +58,7 @@ None at this time.
 ## 🔍 Troubleshooting
 
 If you don’t see the UI:  
-- Press `Insert` to bring it up or reset layout  
+- Press `WIP` to bring it up or reset layout  
 - Ensure MelonLoader is installed correctly  
 - Check for conflicting mods or hook issues  
 
