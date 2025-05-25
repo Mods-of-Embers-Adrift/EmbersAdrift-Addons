@@ -23,7 +23,6 @@ namespace DPSAddon
         private Rect _minimizedButtonRect = new Rect(10, 10, 120, 30);
         private Vector2 _scrollPosition;
         private bool _showHealing;
-        private bool _multiTracking;
 
         // Window control fields
         private bool _isResizing;
@@ -40,23 +39,11 @@ namespace DPSAddon
         private GUIStyle _checkboxStyle;
         private GUIStyle _resizeStyle;
 
-        // Additional window tracking
-        private List<AdditionalWindow> _additionalWindows = new List<AdditionalWindow>();
-        private int _nextWindowId = 1002; // Main window is 1001
         #endregion
 
         #region Classes and Enums
         private enum Tab { Current, History, Settings }
         private Tab _currentTab = Tab.Current;
-
-        private class AdditionalWindow
-        {
-            public int Id;
-            public Rect WindowRect;
-            public bool ShowHealing;
-            public Vector2 ScrollPosition;
-            public string Title;
-        }
         #endregion
 
         #region Initialization and Lifecycle Methods
@@ -100,13 +87,6 @@ namespace DPSAddon
             {
                 GUI.backgroundColor = new Color(0, 0, 0, 0.8f);
                 _windowRect = GUILayout.Window(1001, _windowRect, DrawWindow, "DPS Meter");
-
-                // Draw additional windows
-                foreach (var window in _additionalWindows.ToList())
-                {
-                    window.WindowRect = GUILayout.Window(window.Id, window.WindowRect,
-                        (id) => DrawAdditionalWindow(window), window.Title);
-                }
             }
         }
         #endregion
@@ -284,14 +264,6 @@ namespace DPSAddon
             if (GUILayout.Toggle(!_showHealing, "Damage", _buttonStyle)) _showHealing = false;
             if (GUILayout.Toggle(_showHealing, "Healing", _buttonStyle)) _showHealing = true;
 
-            bool newMultiTracking = GUILayout.Toggle(_multiTracking, "Multi Track", _checkboxStyle);
-            if (newMultiTracking != _multiTracking)
-            {
-                _multiTracking = newMultiTracking;
-                if (!_multiTracking)
-                    _additionalWindows.Clear();
-            }
-
             GUILayout.FlexibleSpace();
             if (GUILayout.Button("Reset", _buttonStyle)) DPSTracker.Reset();
             if (GUILayout.Button("Close", _buttonStyle)) ToggleVisibility();
@@ -303,7 +275,7 @@ namespace DPSAddon
         private void DrawHistoryTab()
         {
             GUILayout.Label("Combat History", _headerStyle);
-            // Add history implementation here
+            // Add history implementation here if needed
         }
 
         private void DrawSettingsTab()
@@ -357,12 +329,6 @@ namespace DPSAddon
                         _labelStyle, GUILayout.Width(60));
                     GUILayout.Label((_showHealing ? entry.Value.TotalHealing : entry.Value.TotalDamage).ToString("F0"),
                         _labelStyle, GUILayout.Width(60));
-
-                    if (_multiTracking && GUILayout.Button("Track", _buttonStyle, GUILayout.Width(50)))
-                    {
-                        CreateAdditionalWindow(!_showHealing);
-                    }
-
                     GUILayout.EndHorizontal();
                 }
             }
@@ -381,47 +347,6 @@ namespace DPSAddon
             }
         }
 
-        private void DrawAdditionalWindow(AdditionalWindow window)
-        {
-            GUILayout.BeginHorizontal();
-            GUILayout.Label(window.ShowHealing ? "Healing Meter" : "Damage Meter", _headerStyle);
-            GUILayout.FlexibleSpace();
-            if (GUILayout.Button("Close", _buttonStyle))
-            {
-                _additionalWindows.Remove(window);
-                return;
-            }
-            GUILayout.EndHorizontal();
-
-            DrawMetersForWindow(window);
-
-            // Only allow dragging if enabled
-            if (_allowDrag)
-            {
-                GUI.DragWindow();
-            }
-        }
-
-        private void DrawMetersForWindow(AdditionalWindow window)
-        {
-            // Similar to DrawMeters but for additional window
-            // Implementation here
-        }
-        #endregion
-
-        #region Utility Methods
-        private void CreateAdditionalWindow(bool showHealing)
-        {
-            var window = new AdditionalWindow
-            {
-                Id = _nextWindowId++,
-                WindowRect = new Rect(_windowRect.x + 50, _windowRect.y + 50, 300, 400),
-                ShowHealing = showHealing,
-                Title = showHealing ? "Healing Meter" : "Damage Meter"
-            };
-
-            _additionalWindows.Add(window);
-        }
         #endregion
     }
 }

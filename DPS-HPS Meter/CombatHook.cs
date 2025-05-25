@@ -1,82 +1,56 @@
 ﻿using System;
 using System.Reflection;
+using System.Text.RegularExpressions;
 using HarmonyLib;
 using MelonLoader;
 using SoL.Game.Messages;
 using SoL.Game.UI.Chat;
-using System.Text.RegularExpressions;
 using SoL.Game;
 
 namespace DPSAddon
 {
     public static class ManualInjector
     {
-        private const string LOG_PREFIX = "[DPS Patch]";
         private const string HARMONY_ID = "DPSAddon.ManualPatch";
         private static HarmonyLib.Harmony _harmony;
         private static bool _isInitialized;
-
-        // Regular expressions for parsing combat messages
-        private static readonly Regex DamageRegex = new Regex(@"Your .+ hits .+ for (\d+)");
-        private static readonly Regex HealingRegex = new Regex(@"Your .+ heals .+ for (\d+)");
 
         public static bool Inject()
         {
             if (_isInitialized)
             {
-                LogDebug("Already initialized");
+                MelonLogger.Msg("[DPS Patch] Already initialized");
                 return true;
             }
 
             try
             {
-                LogDebug("Attempting chat message patch...");
-
+                MelonLogger.Msg("[DPS Patch] Attempting chat message patch...");
                 _harmony = new HarmonyLib.Harmony(HARMONY_ID);
-                var success = ApplyPatch();
 
-                if (success)
-                {
-                    _isInitialized = true;
-                }
-
-                return success;
-            }
-            catch (Exception ex)
-            {
-                LogError("Failed to initialize injector", ex);
-                return false;
-            }
-        }
-
-        private static bool ApplyPatch()
-        {
-            try
-            {
-                // Try to find MessageManager.ChatQueue.AddToQueue
                 var targetMethod = FindAddToQueueMethod();
                 if (targetMethod == null)
                 {
-                    LogWarning("Could not find AddToQueue method");
+                    MelonLogger.Warning("[DPS Patch] Could not find AddToQueue method");
                     return false;
                 }
 
-                var postfix = typeof(ManualInjector).GetMethod(nameof(AddToQueue_Postfix),
-                    BindingFlags.Static | BindingFlags.NonPublic);
-
+                var postfix = typeof(ManualInjector).GetMethod("AddToQueue_Postfix", BindingFlags.Static | BindingFlags.NonPublic);
                 if (postfix == null)
                 {
-                    LogWarning("Could not find postfix method");
+                    MelonLogger.Warning("[DPS Patch] Could not find postfix method");
                     return false;
                 }
 
                 _harmony.Patch(targetMethod, postfix: new HarmonyMethod(postfix));
-                LogDebug("Successfully patched AddToQueue");
+                MelonLogger.Msg("[DPS Patch] Successfully patched AddToQueue");
+                _isInitialized = true;
                 return true;
             }
             catch (Exception ex)
             {
-                LogError("Failed to apply patch", ex);
+                MelonLogger.Error($"[DPS Patch] Failed to initialize injector: {ex.Message}");
+                MelonLogger.Error($"[DPS Patch] Stack trace: {ex.StackTrace}");
                 return false;
             }
         }
@@ -85,7 +59,6 @@ namespace DPSAddon
         {
             try
             {
-                // First try MessageManager.ChatQueue
                 var messageManagerType = typeof(MessageManager);
                 var chatQueueProperty = messageManagerType.GetProperty("ChatQueue");
                 if (chatQueueProperty != null)
@@ -94,14 +67,12 @@ namespace DPSAddon
                     return queueType.GetMethod("AddToQueue", new Type[] { typeof(MessageType), typeof(string) });
                 }
 
-                // If that fails, try finding the method directly
                 var assemblies = AppDomain.CurrentDomain.GetAssemblies();
                 foreach (var assembly in assemblies)
                 {
                     if (assembly.GetName().Name.StartsWith("SoL"))
                     {
-                        var types = assembly.GetTypes();
-                        foreach (var type in types)
+                        foreach (var type in assembly.GetTypes())
                         {
                             if (type.Name == "MessageQueue")
                             {
@@ -115,10 +86,11 @@ namespace DPSAddon
             }
             catch (Exception ex)
             {
-                LogError("Error finding AddToQueue method", ex);
+                MelonLogger.Error($"[DPS Patch] Error finding AddToQueue method: {ex.Message}");
                 return null;
             }
         }
+
         private static void AddToQueue_Postfix(MessageType type, string content)
         {
             try
@@ -126,77 +98,87 @@ namespace DPSAddon
                 // Only process relevant combat messages
                 if (type != MessageType.MyCombatOut && type != MessageType.MyCombatIn) return;
 
-                LogDebug($"Processing combat message: {content} | Type: {type}");
+                // STRIP RICH TEXT TAGS before parsing!
+                string strippedContent = DPSTracker.StripRichTextTags(content);
+
+                MelonLogger.Msg($"[DPS Patch] Processing combat message: {strippedContent} | Type: {type}");
 
                 string playerName = LocalPlayer.GameEntity?.CharacterData?.Name?.Value;
-                if (string.IsNullOrEmpty(playerName)) return;
+                if (string.IsNullOrEmpty(playerName))
+                {
+                    MelonLogger.Msg("[DPS Patch] Player name could not be determined, skipping.");
+                    return;
+                }
 
-                // Handle outgoing combat (damage and healing others)
+                // Outgoing (damage or healing others/self)
                 if (type == MessageType.MyCombatOut)
                 {
-                    // Early exit if not player action
-                    if (!content.Contains("<i>Your</i>")) return;
-
-                    // Check for damage (HITS)
-                    if (content.Contains("HITS"))
+                    if (!strippedContent.Contains("Your")) // Now matches plain text after stripping tags
                     {
-                        var damageMatch = Regex.Match(content, @"for.*?(\d+)\s*health");
+                        MelonLogger.Msg("[DPS Patch] Outgoing message does not contain 'Your', skipping.");
+                        return;
+                    }
+
+                    if (strippedContent.Contains("HITS"))
+                    {
+                        MelonLogger.Msg($"[DPS Patch] Checking for outgoing damage in: {strippedContent}");
+                        var damageMatch = Regex.Match(strippedContent, @"for.*?(\d+)\s*health");
                         if (damageMatch.Success && int.TryParse(damageMatch.Groups[1].Value, out int damage))
                         {
-                            LogDebug($"Recording outgoing damage: {playerName} -> {damage}");
+                            MelonLogger.Msg($"[DPS Patch] Recording outgoing damage: {playerName} -> {damage}");
                             DPSTracker.RecordDamage(playerName, damage);
                         }
-                    }
-                    // Check for outgoing healing ("Your X restores Y of target's health")
-                    else if (content.Contains("restores") && content.Contains("of your health"))
-                    {
-                        var healMatch = Regex.Match(content, @"restores\s*(\d+)\s*of your health");
-                        if (healMatch.Success && int.TryParse(healMatch.Groups[1].Value, out int healing))
+                        else
                         {
-                            LogDebug($"Recording outgoing healing: {playerName} -> {healing}");
-                            DPSTracker.RecordHealing(playerName, healing);
+                            MelonLogger.Msg($"[DPS Patch] Outgoing damage pattern not matched for: {strippedContent}");
+                        }
+                    }
+                    else if (strippedContent.Contains("restores"))
+                    {
+                        MelonLogger.Msg($"[DPS Patch] Checking for outgoing healing in: {strippedContent}");
+                        var otherHealMatch = Regex.Match(strippedContent, @"restores\s*(\d+)\s*of ([^']+)'s health");
+                        var selfHealMatch = Regex.Match(strippedContent, @"restores\s*(\d+)\s*of your health", RegexOptions.IgnoreCase);
+
+                        if (otherHealMatch.Success && int.TryParse(otherHealMatch.Groups[1].Value, out int amount))
+                        {
+                            string target = otherHealMatch.Groups[2].Value.Trim();
+                            MelonLogger.Msg($"[DPS Patch] Recording outgoing healing: {playerName} heals {target} for {amount}");
+                            DPSTracker.RecordHealing(target, amount);
+                        }
+                        else if (selfHealMatch.Success && int.TryParse(selfHealMatch.Groups[1].Value, out int selfAmount))
+                        {
+                            MelonLogger.Msg($"[DPS Patch] Recording outgoing self-healing: {playerName} for {selfAmount}");
+                            DPSTracker.RecordHealing(playerName, selfAmount);
+                        }
+                        else
+                        {
+                            MelonLogger.Msg($"[DPS Patch] Outgoing healing pattern not matched for: {strippedContent}");
                         }
                     }
                 }
-                // Handle incoming combat (receiving healing)
+                // Incoming (receiving healing)
                 else if (type == MessageType.MyCombatIn)
                 {
-                    // Check for incoming healing
-                    if (content.Contains("restores") && content.Contains("of your health"))
+                    if (strippedContent.Contains("restores") && strippedContent.Contains("of your health"))
                     {
-                        var healMatch = Regex.Match(content, @"restores\s*(\d+)\s*of your health");
+                        MelonLogger.Msg($"[DPS Patch] Checking for incoming healing in: {strippedContent}");
+                        var healMatch = Regex.Match(strippedContent, @"restores\s*(\d+)\s*of your health", RegexOptions.IgnoreCase);
                         if (healMatch.Success && int.TryParse(healMatch.Groups[1].Value, out int healing))
                         {
-                            LogDebug($"Recording incoming healing: {playerName} -> {healing}");
+                            MelonLogger.Msg($"[DPS Patch] Recording incoming healing: {playerName} -> {healing}");
                             DPSTracker.RecordHealing(playerName, healing);
+                        }
+                        else
+                        {
+                            MelonLogger.Msg($"[DPS Patch] Incoming healing pattern not matched for: {strippedContent}");
                         }
                     }
                 }
             }
             catch (Exception ex)
             {
-                LogError("Error processing chat message", ex);
-            }
-        }
-
-
-
-
-
-        private static string GetPlayerNameFromMessage(string content)
-        {
-            try
-            {
-                if (LocalPlayer.GameEntity?.CharacterData?.Name != null)
-                {
-                    return LocalPlayer.GameEntity.CharacterData.Name.Value;
-                }
-                return "Unknown";
-            }
-            catch (Exception ex)
-            {
-                LogError("Error getting player name", ex);
-                return "Unknown";
+                MelonLogger.Error($"[DPS Patch] Error processing chat message: {ex.Message}");
+                MelonLogger.Error($"[DPS Patch] Stack trace: {ex.StackTrace}");
             }
         }
 
@@ -212,28 +194,12 @@ namespace DPSAddon
                     _harmony = null;
                 }
                 _isInitialized = false;
-                LogDebug("Cleanup completed");
+                MelonLogger.Msg("[DPS Patch] Cleanup completed");
             }
             catch (Exception ex)
             {
-                LogError("Failed to cleanup patches", ex);
+                MelonLogger.Error($"[DPS Patch] Failed to cleanup patches: {ex.Message}");
             }
-        }
-
-        private static void LogError(string message, Exception ex)
-        {
-            MelonLogger.Error($"{LOG_PREFIX} {message}: {ex.Message}");
-            MelonLogger.Error($"{LOG_PREFIX} Stack trace: {ex.StackTrace}");
-        }
-
-        private static void LogWarning(string message)
-        {
-            MelonLogger.Warning($"{LOG_PREFIX} {message}");
-        }
-
-        private static void LogDebug(string message)
-        {
-            MelonLogger.Msg($"{LOG_PREFIX} {message}");
         }
     }
 }

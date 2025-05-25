@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 using MelonLoader;
+using System.Text.RegularExpressions;
 
 namespace DPSAddon
 {
@@ -107,6 +108,11 @@ namespace DPSAddon
             }
         }
 
+        public static string StripRichTextTags(string input)
+        {
+            return Regex.Replace(input, "<.*?>", string.Empty);
+        }
+
         public static void TestRecord()
         {
             if (_instance == null)
@@ -145,61 +151,24 @@ namespace DPSAddon
 
         public static void RecordHealing(string source, float amount)
         {
-            try
+            MelonLogger.Msg($"{LOG_PREFIX} Attempting to record healing - Source: {source}, Amount: {amount}");
+
+            if (_instance == null)
             {
-                MelonLogger.Msg($"{LOG_PREFIX} Attempting to record healing - Source: {source}, Amount: {amount}");
-
-                // Validate instance
-                if (_instance == null)
-                {
-                    MelonLogger.Error($"{LOG_PREFIX} Instance is null! Attempting to create new instance...");
-                    Launch();
-                    if (_instance == null)
-                    {
-                        MelonLogger.Error($"{LOG_PREFIX} Failed to create instance!");
-                        return;
-                    }
-                }
-
-                // Validate parameters
-                if (string.IsNullOrEmpty(source))
-                {
-                    MelonLogger.Error($"{LOG_PREFIX} Source name is null or empty!");
-                    return;
-                }
-
-                if (float.IsNaN(amount) || float.IsInfinity(amount))
-                {
-                    MelonLogger.Error($"{LOG_PREFIX} Invalid healing amount: {amount}");
-                    return;
-                }
-
-                _instance._lastActionTime = Time.time;
-
-                // Get or create entry
-                if (!_instance._hpsDict.TryGetValue(source, out var entry))
-                {
-                    MelonLogger.Msg($"{LOG_PREFIX} Creating new entry for {source}");
-                    entry = new DpsEntry
-                    {
-                        StartTime = Time.time,
-                        Name = source  // Make sure Name is set
-                    };
-                    _instance._hpsDict[source] = entry;
-                }
-
-                // Record healing
-                entry.TotalHealing += amount;
-                entry.EndTime = Time.time;  // Update end time
-
-                MelonLogger.Msg($"{LOG_PREFIX} Recorded {amount:F0} healing for {source} " +
-                               $"(Total: {entry.TotalHealing:F0}, HPS: {entry.HPS:F1})");
+                MelonLogger.Error($"{LOG_PREFIX} Instance is null!");
+                return;
             }
-            catch (Exception ex)
+
+            _instance._lastActionTime = Time.time;
+
+            if (!_instance._hpsDict.TryGetValue(source, out var entry))
             {
-                MelonLogger.Error($"{LOG_PREFIX} Error recording healing: {ex.Message}");
-                MelonLogger.Error($"{LOG_PREFIX} Stack trace: {ex.StackTrace}");
+                entry = new DpsEntry { StartTime = Time.time };
+                _instance._hpsDict[source] = entry;
             }
+
+            entry.TotalHealing += amount;
+            MelonLogger.Msg($"{LOG_PREFIX} Recorded {amount} healing for {source} (Total: {entry.TotalHealing:F0})");
         }
 
         private void Update()

@@ -22,20 +22,29 @@ This addon gives you a real-time overview of combat performance in a fully custo
 
 ## 🆕 Changelog
 
+## Version 1.0.3
+### Major Updates:
+
+- Fixed HPS tracking for self-healing now works even when chat messages include Unity rich text tags (color, italics, etc.).
+- Improved Combat message parsing is more robust and reliable for all healing events.
+- Refactored Internal healing recording logic is now minimal and consistent with damage logic.
+- Added Utility function to strip Unity rich text tags from combat log messages.
+- Improved logging for easier debugging and traceability.
+- Removed multi-tracking system with checkboxes until further notice or better integration.
+
+---
+
 ## Version 1.0.2
 
 ### Major Updates:
 ### Combat Text & Data:
 - Fixed combat text parsing for damage messages  
-- Added proper healing message detection ("restores", "your" keyword)  
 - Implemented proper damage number extraction  
 - Added player name resolution  
 - Fixed data flow from combat text to tracker  
 - Confirmed working DPS tracking system  
-- Added proper HPS tracking system  
 
 ### UI System Overhaul:
-- Added tab system (Current, History, Settings)  
 - Implemented multi-tracking system with checkboxes  
 - Added window position saving  
 - Added window resizing functionality  
@@ -108,6 +117,8 @@ This addon gives you a real-time overview of combat performance in a fully custo
 - Fixed tracker initialization logic and ensured proper instance tracking  
 - Intercepted raw combat messages and applied parsing for damage values  
 - Implemented basic UI framework and ensured core functionality across scenes   
+
+---
 
 ### Version 1.0
 
