@@ -25,7 +25,7 @@ This mod makes the sale price row always visible in item tooltips, anywhere in t
 
 ## Flow Diagram
 
-```mermaid
+```
 flowchart TD
     A[Merchant Window Open] --> B[MerchantForSaleListItem Created]
     B --> C{User Hovers Item}
