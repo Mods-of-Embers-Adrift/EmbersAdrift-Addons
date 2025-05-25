@@ -4,7 +4,6 @@
 Welcome to the official addon repository for **Embers Adrift**, now powered by **MelonLoader** for seamless mod integration.
 ---
 # Disclaimer
-**Embers Adrift Modding Disclaimer**
 This mod and any other third-party modifications for Embers Adrift are **not officially supported or endorsed** by Stormhaven Studios, the developers of Embers Adrift.
 
 - Use of mods is at your **own risk**.  
