@@ -1,15 +1,28 @@
 
 ![EMODS](https://github.com/user-attachments/assets/a19d4f84-924b-40a7-aa5d-b921d99b2d03)
 
-
 Welcome to the official addon repository for **Embers Adrift**, now powered by **MelonLoader** for seamless mod integration.
+---
+# Disclaimer
+**Embers Adrift Modding Disclaimer**
+This mod and any other third-party modifications for Embers Adrift are **not officially supported or endorsed** by Stormhaven Studios, the developers of Embers Adrift.
+
+- Use of mods is at your **own risk**.  
+- Mods may cause unexpected behavior, bugs, or crashes, and could potentially result in data loss or account issues.
+- Stormhaven Studios may update the game in ways that break mod functionality at any time.
+- Use of mods may violate the game's Terms of Service or End User License Agreement.  
+  **It is your responsibility** to ensure you are not violating any agreements or rules.
+- Stormhaven Studios and the mod author(s) are **not responsible** for any issues, bans, or other consequences resulting from the use of mods.
+- By using this mod, you agree to these risks and hold both Stormhaven Studios and the mod author(s) harmless for any negative outcomes.
+
+**If you are unsure about the safety or rules regarding mods, please consult the official Embers Adrift documentation or contact Stormhaven Studios support before proceeding.**
+
 ---
 ## 📦 Requirements
 
 - 🎮 A working installation of **Embers Adrift** (Steam version)
 - 🔧 [MelonLoader v0.7.0](https://github.com/LavaGang/MelonLoader/releases/tag/v0.7.0)
 ---
-
 ## 🛠️ Installation Instructions
 
 ### 1️⃣ Install MelonLoader (v0.7.0)
