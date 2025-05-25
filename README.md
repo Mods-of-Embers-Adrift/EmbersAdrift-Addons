@@ -2,7 +2,8 @@
 ![EMODS](https://github.com/user-attachments/assets/a19d4f84-924b-40a7-aa5d-b921d99b2d03)
 
 Welcome to the official addon repository for **Embers Adrift**, now powered by **MelonLoader** for seamless mod integration.
-https://discord.gg/DNcNvRyMtD
+
+Discord: https://discord.gg/DNcNvRyMtD
 ---
 # Disclaimer
 This mod and any other third-party modifications for Embers Adrift are **not officially supported or endorsed** by Stormhaven Studios, the developers of Embers Adrift.
