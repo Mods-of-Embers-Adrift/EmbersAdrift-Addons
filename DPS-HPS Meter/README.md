@@ -3,6 +3,7 @@
 Welcome to **DPSAddon**, a fully MelonLoader-based DPS/HPS tracking addon for **Embers Adrift**.  
 This addon gives you a real-time overview of combat performance in a fully customizable and non-intrusive UI.
 
+- Mod by MrJambix
 ---
 
 ## 📦 Features in progress
@@ -157,3 +158,4 @@ If you don’t see the UI:
 ### 📘 License
 
 Open-source and free to modify or improve. Contributions welcome!
+
