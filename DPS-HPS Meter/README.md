@@ -18,8 +18,13 @@ This addon gives you a real-time overview of combat performance in a fully custo
 - Insert key toggles visibility and resets position on long press  
 - Optional side button toggle when main UI is closed  
 
----
+## Work In Progress
 
+- Fight History Log
+- Skill with Mitigation/Absorbs/ect..
+- Songs from Warlord
+
+---
 ## 🆕 Changelog
 
 ## Version 1.0.3
