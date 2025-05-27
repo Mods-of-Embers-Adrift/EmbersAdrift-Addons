@@ -1,4 +1,4 @@
-
+ 
 ![EMODS](https://github.com/user-attachments/assets/a19d4f84-924b-40a7-aa5d-b921d99b2d03)
 
 Welcome to the official addon repository for **Embers Adrift**, now powered by **MelonLoader** for seamless mod integration.
