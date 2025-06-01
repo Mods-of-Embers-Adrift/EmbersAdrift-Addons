@@ -1,0 +1,88 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\mrjam\\OneDrive\\Desktop\\Embers Adrift\\AuctionHouse\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{789DF6D5-B5D7-4EB6-A0FB-B5E2A240A7BC}|AuctionHouse.csproj|c:\\users\\mrjam\\onedrive\\desktop\\embers adrift\\auctionhouse\\auctionhousepinnedcolumnmod.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{789DF6D5-B5D7-4EB6-A0FB-B5E2A240A7BC}|AuctionHouse.csproj|solutionrelative:auctionhousepinnedcolumnmod.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{789DF6D5-B5D7-4EB6-A0FB-B5E2A240A7BC}|AuctionHouse.csproj|c:\\users\\mrjam\\onedrive\\desktop\\embers adrift\\auctionhouse\\auctionhouse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{789DF6D5-B5D7-4EB6-A0FB-B5E2A240A7BC}|AuctionHouse.csproj|solutionrelative:auctionhouse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{789DF6D5-B5D7-4EB6-A0FB-B5E2A240A7BC}|AuctionHouse.csproj|c:\\users\\mrjam\\onedrive\\desktop\\embers adrift\\auctionhouse\\auctionhousecontextpinmod.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{789DF6D5-B5D7-4EB6-A0FB-B5E2A240A7BC}|AuctionHouse.csproj|solutionrelative:auctionhousecontextpinmod.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{789DF6D5-B5D7-4EB6-A0FB-B5E2A240A7BC}|AuctionHouse.csproj|c:\\users\\mrjam\\onedrive\\desktop\\embers adrift\\auctionhouse\\properties\\assemblyinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{789DF6D5-B5D7-4EB6-A0FB-B5E2A240A7BC}|AuctionHouse.csproj|solutionrelative:properties\\assemblyinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "AuctionHousePinnedColumnMod.cs",
+              "DocumentMoniker": "C:\\Users\\mrjam\\OneDrive\\Desktop\\Embers Adrift\\AuctionHouse\\AuctionHousePinnedColumnMod.cs",
+              "RelativeDocumentMoniker": "AuctionHousePinnedColumnMod.cs",
+              "ToolTip": "C:\\Users\\mrjam\\OneDrive\\Desktop\\Embers Adrift\\AuctionHouse\\AuctionHousePinnedColumnMod.cs*",
+              "RelativeToolTip": "AuctionHousePinnedColumnMod.cs*",
+              "ViewState": "AgIAAEIAAAAAAAAAAAAswGwAAAAzAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-01T20:36:34.785Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "AuctionHouseContextPinMod.cs",
+              "DocumentMoniker": "C:\\Users\\mrjam\\OneDrive\\Desktop\\Embers Adrift\\AuctionHouse\\AuctionHouseContextPinMod.cs",
+              "RelativeDocumentMoniker": "AuctionHouseContextPinMod.cs",
+              "ToolTip": "C:\\Users\\mrjam\\OneDrive\\Desktop\\Embers Adrift\\AuctionHouse\\AuctionHouseContextPinMod.cs",
+              "RelativeToolTip": "AuctionHouseContextPinMod.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADAAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-01T19:51:29.698Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "AssemblyInfo.cs",
+              "DocumentMoniker": "C:\\Users\\mrjam\\OneDrive\\Desktop\\Embers Adrift\\AuctionHouse\\Properties\\AssemblyInfo.cs",
+              "RelativeDocumentMoniker": "Properties\\AssemblyInfo.cs",
+              "ToolTip": "C:\\Users\\mrjam\\OneDrive\\Desktop\\Embers Adrift\\AuctionHouse\\Properties\\AssemblyInfo.cs",
+              "RelativeToolTip": "Properties\\AssemblyInfo.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-01T19:03:17.035Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "AuctionHouse.cs",
+              "DocumentMoniker": "C:\\Users\\mrjam\\OneDrive\\Desktop\\Embers Adrift\\AuctionHouse\\AuctionHouse.cs",
+              "RelativeDocumentMoniker": "AuctionHouse.cs",
+              "ToolTip": "C:\\Users\\mrjam\\OneDrive\\Desktop\\Embers Adrift\\AuctionHouse\\AuctionHouse.cs",
+              "RelativeToolTip": "AuctionHouse.cs",
+              "ViewState": "AgIAADIAAAAAAAAAAAAswGcAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-01T18:10:54.668Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
