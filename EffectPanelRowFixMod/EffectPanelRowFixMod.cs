@@ -2,34 +2,39 @@
 using UnityEngine;
 using UnityEngine.UI;
 using System.Linq;
+using System.Collections.Generic;
 
 public class EffectPanelRowFixMod : MelonMod
 {
-    private const int MaxIconsPerRow = 10; // Adjust to desired value for your UI
+    private const int MaxIconsPerRow = 10;
+    private List<MonoBehaviour> cachedPanels = new List<MonoBehaviour>();
+    private Dictionary<MonoBehaviour, int> lastIconCounts = new Dictionary<MonoBehaviour, int>();
+
+    public override void OnSceneWasLoaded(int buildIndex, string sceneName)
+    {
+        // Find and cache the EffectIconPanelUI objects when a scene loads
+        cachedPanels = GameObject.FindObjectsOfType<MonoBehaviour>()
+            .Where(mb => mb.GetType().Name == "EffectIconPanelUI")
+            .ToList();
+        lastIconCounts.Clear();
+    }
 
     public override void OnUpdate()
     {
-        // Find all active EffectIconPanelUI objects in the scene
-        var panels = GameObject.FindObjectsOfType<MonoBehaviour>()
-            .Where(mb => mb.GetType().Name == "EffectIconPanelUI");
-
-        foreach (var panel in panels)
+        foreach (var panel in cachedPanels)
         {
-            var grid = ((MonoBehaviour)panel).GetComponent<GridLayoutGroup>();
+            var grid = panel.GetComponent<GridLayoutGroup>();
             if (grid == null) continue;
 
-            // Count only direct child icons of this panel that are active
-            int iconCount = ((MonoBehaviour)panel).GetComponentsInChildren<UnityEngine.UI.Image>(true)
-                .Count(img => img.gameObject.activeSelf && img.transform.parent == ((MonoBehaviour)panel).transform);
+            int iconCount = panel.GetComponentsInChildren<UnityEngine.UI.Image>(true)
+                .Count(img => img.gameObject.activeSelf && img.transform.parent == panel.transform);
 
-            // Always at least 1 row; collapse to 1 when under MaxIconsPerRow
-            int rowCount = (iconCount > MaxIconsPerRow) ? 2 : 1;
-
-            // Only update if values are not already correct
-            if (grid.constraint != GridLayoutGroup.Constraint.FixedRowCount || grid.constraintCount != rowCount)
+            if (!lastIconCounts.TryGetValue(panel, out int lastCount) || lastCount != iconCount)
             {
+                int rowCount = (iconCount > MaxIconsPerRow) ? 2 : 1;
                 grid.constraint = GridLayoutGroup.Constraint.FixedRowCount;
                 grid.constraintCount = rowCount;
+                lastIconCounts[panel] = iconCount;
             }
         }
     }
